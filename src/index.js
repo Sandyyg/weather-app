@@ -23,6 +23,34 @@ function formatDate(date) {
     return `${day} ${hours}:${minutes}`;
   }
   
+  function displayForecast() {
+    let forecastElement = document.querySelector("#forecast");
+
+    let forecastHTML = 'div class="row">';
+    let days = ["Thu", "Fri", "Sat", "Sun"];
+    days.forEach(function (day) {
+      forecastHTML =
+      forecastHTML +
+      ''
+      <div class="col-2">
+       <div class="forecast-days" id="forecast"><center>${day}</center></div>
+       <div class="row">
+          <div class="col-2">
+                      
+         <span class="forecast-weather"><center><i class="fas fa-sun"></i></center></span>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-2">
+                <span class="forecast-temperature-max"> 43° <strong></span>
+                  <span class="forecast-temperature-min">24°</strong></i></span>
+                ';
+});
+forecastHTML = forecastHTML + '</div>';
+forecastElement.innerHTML = forecastHTML;
+}
+
   function displayWeatherCondition(response) {
     document.querySelector("#city").innerHTML = response.data.name;
     document.querySelector("#temperature").innerHTML = Math.round(
@@ -69,7 +97,6 @@ function formatDate(date) {
     axios.get(apiUrl).then(displayWeatherCondition);
   }
 
-  
 
   function getCurrentLocation(event) {
     event.preventDefault();
