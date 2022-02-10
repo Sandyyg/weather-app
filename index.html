@@ -11,6 +11,12 @@
       crossorigin="anonymous"/>
       <link rel="stylesheet" href="src/style.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+
     
     <title>Weather App</title>
     
@@ -33,85 +39,69 @@
 
   <body>
     <div class="container">
-      <div class="weather-app">
-        <div class= "weather-app-wrapper">
-        <form class="search-form" id="search-form">
+      <div class="weather-wrapper">
+        <form action="" id="search-form">
           <div class="row">
             <div class="col-6">
+              <div class="mb-3">
               <input
-                type="search"
+                type="text"
+                class="form-control"
                 placeholder="Type city here.."
-                autofocus="on"
                 autocomplete="off"
-                id="city-input"
-                class="form-control shadow-sm"
-              />
+                autofocus="on"
+                id="search-text-input"/>
+            </div>
             </div>
           
             <div class="col-3">
+              <div class="col-auto"></div>
               <input
                 type="submit"
-                value="Search"
-                class="form-control btn btn-dark shadow-sm w-100"
-              />
+                class="btn btn-dark"
+                value="SEARCH"/>
             </div>
-          
-            <div class="col-3">
-              <button class="btn btn-dark w-100" id="current-location-button">
-                Current
-              </button>
+        
+         
+
+        </form>
+        <div class="loc-time-weather-info">
+          <div class="row">
+            
+            <div class="col-8 loc-time">
+              <span id="date-time"></span>
+             
+              <h1 id="location-name"></h1>
+              
+            </div>
+            <div class="col-1 weather-icon">
+            
+              <i id="weather-icon" class=""></i>
+            </div>
+           <div class="col-3 temperature-info">
+              <span id="temperature-num"></span>
+               <span class="units"> </span>
+                <a href="#" id="celsiusTag" class="active">°C</a>|
+             <a href="#" id="fahrenheitTag">°F</a> </span>
+              
+          </div>
+          </div>
+          <div class="row weather-info-detail">
+            
+            <div class="col">
+              <p>Wind speed: <span id="wind-speed"></span> km/h</p>
+            </div>
+            <div class="col">
+              <p>Humidity: <span id="humidity"></span>%</p>
+            </div>
+            <div class="col">
+              <span id="weather-description"></span>
             </div>
           </div>
-        </form>
-      
-        <h1 id="city"></h1>
-        <ul>
-          <li id="date"></li>
-          <li id="description"></li>
-        </ul>
-      
-        <div class="row">
-         <div class="col-6">
-           <div class="clearfix weather-temperature"></div>
-           
-          <img src="http://openweathermap.org/img/wn/10d@2x.png"
-          alt="Clear" id="icon" class="float-left" 
-          />
-          
-              
-                <span class="temperature" id="temperature"></span
-                  ><span class="units"><a href="#" 
-                    id="celsius-link"> °C | <a href="#" 
-                    id="fahrenheit-link">°F</a> </span>
-                  </div>
-                </div>
-                <br />
-                    
-               <div class="weather-forecast" id="forecast"></div>
-                <div class="row">
-                  <div class="col-2">
-            <div class="forecast-days" id="Monday"><center>Monday</center>
-                  </div>
-                      </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-2">
-                     <span class="forecast-weather"><center><i class="fas fa-sun"></i></center></span>
-                        </span>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-2">
-                <span class="forecast-temperature-max"> 43° <strong></span>
-                  <span class="forecast-temperature-min">24°</strong></i></span>
-                
-                      </div>
-                      </div>
-                 </span>
-              </div>
-              </div>
-              </div>
-          
+        </div>
+        <div class="weather-forecast" id="forecast"></div>
+      </div>
+      </div>
 <small>
   <div class="weather-app-wrapper">
   <a href="https://github.com/Sandyyg"
