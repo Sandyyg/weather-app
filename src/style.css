@@ -1,6 +1,7 @@
 body {
   background: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
+  
 }
 
 .container {
@@ -16,9 +17,6 @@ body {
 
 }
 
-#search-form {
-  margin-bottom: 60px;
-}
 
 #search-text-input {
   width: 100%;
@@ -26,17 +24,16 @@ body {
   padding: 5px 30px;
   background-color: transparent;
   border:rgb(181, 213, 255);
-  
+ 
+  color:lightblue;
   text-align: center;
  
 }
-
-::placeholder {
-  color: rgb(181, 213, 255);
-  font-style: italic;
-  font-weight: 200;
-  letter-spacing: 2px;
+#search-form {
+  margin-bottom: 60px;
 }
+
+
 
 
 
@@ -46,12 +43,12 @@ body {
   max-width: 100%;
   font-weight: 500;
   color: rgb(181, 213, 255);
-  background-color: transparent;
+ 
   border: 1px solid rgb(181, 213, 255);
   
 }
 #search-text-input:focus::placeholder {
-  color: transparent;
+  color: lightblue;
 }
 
 .weather-wrapper .btn {
