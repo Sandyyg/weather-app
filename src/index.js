@@ -32,7 +32,7 @@ function formatDateTime(timezone) {
 
   let year = currentDate.getFullYear();
 
-  let hours = currentDate.getHours() ;
+  let hours = currentDate.getUTCHours() ;
   let minutes = currentDate.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
