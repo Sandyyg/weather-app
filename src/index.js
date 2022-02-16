@@ -47,7 +47,7 @@ function formatDateTime(timezone) {
 //function that fetches daily forecast API data
 function getForecast(coordinates) {
   let apiKey = "c904083ce9d848d6eee6931b635cd191";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -139,7 +139,7 @@ function isEmptyOrSpaces(str) {
 
 function searchLocation(userLocationInput) {
   let apiKey = "c904083ce9d848d6eee6931b635cd191";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userLocationInput}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userLocationInput}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayWeatherData);
 }
 
@@ -172,7 +172,7 @@ function showPosition(position) {
   let apiKey = "c904083ce9d848d6eee6931b635cd191";
   let apiGeoUrl = "https://api.openweathermap.org/data/2.5/weather?";
   axios
-    .get(`${apiGeoUrl}lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`)
+    .get(`${apiGeoUrl}lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`)
     .then(displayWeatherData);
 }
 
@@ -180,6 +180,15 @@ navigator.geolocation.getCurrentPosition(showPosition);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+//convert Fahrenheit into Celsius
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  celsiusTag.classList.add("active");
+  fahrenheitTag.classList.remove("active");
+  document.querySelector("#temperature-num").innerHTML =
+    Math.round(celsiusTemp);
+}
 
 //convert Celsius into Fahrenheit
 function showFahrenheitTemp(event) {
